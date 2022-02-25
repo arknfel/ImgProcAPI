@@ -29,7 +29,7 @@ imagesRoute.get(
     // console.log(imgPath);
 
     // async wrapper for resize IMG
-    async function serveReq() {
+    async function serveReq(): Promise <void> {
 
         try{
             // cache
