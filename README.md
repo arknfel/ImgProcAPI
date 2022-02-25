@@ -22,15 +22,21 @@ additionally, this package.json can be used to setup the environment
     "@types/jasmine": "^3.10.3",
     "@types/node": "^17.0.21",
     "@types/sharp": "^0.29.5",
-    "express": "^4.17.3",
+    "@types/supertest": "^2.0.11",
+    "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jasmine": "^4.0.2",
+    "jasmine-spec-reporter": "^7.0.0",
     "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "supertest": "^6.2.2",
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "jasmine": "^4.0.2",
-    "jasmine-spec-reporter": "^7.0.0",
-    "sharp": "^0.23.2"
+      "express": "^4.17.3",
+      "sharp": "^0.30.1"
   }
 }
 ```
