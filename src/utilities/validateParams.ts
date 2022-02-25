@@ -31,7 +31,7 @@ const validateFileName = function (
     req: express.Request,
     res: express.Response,
     next: Function
-) {
+): void {
     let filename = (req.query.filename as unknown) as string;
     let msg = 'missing file extension'; // err msg
     try {
@@ -59,7 +59,7 @@ const validateSize = function (
     req: express.Request,
     res: express.Response,
     next: Function
-) {
+): void {
     let width = (req.query.width as unknown) as string;
     let height = (req.query.height as unknown) as string;
     let msg = `invalid width and/or height, parsed: width=${width}, height=${height}`; // err msg
