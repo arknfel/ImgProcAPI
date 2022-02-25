@@ -60,32 +60,34 @@ function (req, res) {
     // async wrapper for resize IMG
     function serveReq() {
         return __awaiter(this, void 0, void 0, function () {
-            var exists, msg, err_1, msg;
+            var resizedExists, originalExists, msg, err_1, msg;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 3, , 4]);
-                        exists = utilities_1.default.checkFileExists(newPath);
-                        if (!(exists === false)) return [3 /*break*/, 2];
-                        console.log('exists');
+                        _a.trys.push([0, 4, , 5]);
+                        resizedExists = utilities_1.default.checkFileExists(newPath);
+                        originalExists = utilities_1.default.checkFileExists(imgPath);
+                        if (!(resizedExists === false
+                            && originalExists === true)) return [3 /*break*/, 2];
                         return [4 /*yield*/, utilities_1.default.sharpResize(imgPath, newPath, width, height)];
                     case 1:
                         _a.sent();
-                        _a.label = 2;
-                    case 2:
+                        return [3 /*break*/, 3];
+                    case 2: throw new Error("requested image not found");
+                    case 3:
                         res.statusCode = 200;
                         res.sendFile(newPath);
                         msg = "".concat(filename, " resized @ ").concat(newPath);
                         validateParams_1.default.stamper(res.statusCode, req.ip, msg);
-                        return [3 /*break*/, 4];
-                    case 3:
+                        return [3 /*break*/, 5];
+                    case 4:
                         err_1 = _a.sent();
                         res.statusCode = 400;
-                        msg = "Error: Could not locate the resources \n                you looking for (parsed filename: ".concat(filename, ")");
+                        msg = "Error: Could not locate the resources you looking for, (parsed filename: ".concat(filename, ")");
                         res.send(msg);
                         validateParams_1.default.stamper(res.statusCode, req.ip, msg);
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
+                        return [3 /*break*/, 5];
+                    case 5: return [2 /*return*/];
                 }
             });
         });

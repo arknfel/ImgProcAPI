@@ -63,7 +63,7 @@ function sharpResize(imgPath, newPath, width, height) {
                         .resize(width, height)
                         .toFile(newPath)
                         .then(function () {
-                        console.log("sharpResize Ran");
+                        // console.log("sharpResize Ran");
                         return true;
                     })
                         .catch(function (err) {
