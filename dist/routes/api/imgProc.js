@@ -73,7 +73,11 @@ function (req, res) {
                     case 1:
                         _a.sent();
                         return [3 /*break*/, 3];
-                    case 2: throw new Error("requested image not found");
+                    case 2:
+                        if (originalExists === false) {
+                            throw new Error("requested image not found");
+                        }
+                        _a.label = 3;
                     case 3:
                         res.statusCode = 200;
                         res.sendFile(newPath);

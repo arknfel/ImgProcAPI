@@ -42,10 +42,11 @@ imagesRoute.get(
                 && originalExists === true
             ) {
                 await utils.sharpResize(imgPath, newPath, width, height);
-            } else{
+            } 
+            
+            else if ( originalExists === false ) {
                 throw new Error("requested image not found") 
             }
-            
 
             res.statusCode = 200;
             res.sendFile(newPath);
