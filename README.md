@@ -73,7 +73,7 @@ Assuming the server-name is "localhost"
 an example on the endpoint URL would be: ```http://localhost:3000/api/images?filename=testimage.jpg&width=520&height=520```
 ## Validation
 The API will apply a number of validation rules before serving a request,  
-1. The image must exist (uploaded) to the server at ```./images``` and with a valid extension and name, otherwise the server may respond with 404 not found or 400 invalid file name.  
+1. The image must be (uploaded) on the server at ```./images``` and with a valid extension and name, otherwise the server may respond with 404 not found or 400 invalid file name.  
 Note: The API is using the [sharp](https://www.npmjs.com/package/sharp) module to resize and process images.  
 2. Both parameters width and height must be as positive numbers  
 
