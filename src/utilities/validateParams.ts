@@ -12,7 +12,7 @@ const presentParams = function (
     req: express.Request,
     res: express.Response,
     next: Function
-) {
+): void {
     if (
         'filename' in req.query
         && 'width' in req.query

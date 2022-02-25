@@ -33,11 +33,19 @@ imagesRoute.get(
 
         try{
             // cache
-            let exists = utils.checkFileExists(newPath);
+            let resizedExists = utils.checkFileExists(newPath);
+            let originalExists = utils.checkFileExists(imgPath);
 
-            if (exists === false) {
+
+            if (
+                resizedExists === false
+                && originalExists === true
+            ) {
                 await utils.sharpResize(imgPath, newPath, width, height);
+            } else{
+                throw new Error("requested image not found") 
             }
+            
 
             res.statusCode = 200;
             res.sendFile(newPath);
@@ -46,8 +54,7 @@ imagesRoute.get(
 
         } catch (err) {
             res.statusCode = 400;
-            let msg = `Error: Could not locate the resources 
-                you looking for (parsed filename: ${filename})`;
+            let msg = `Error: Could not locate the resources you looking for, (parsed filename: ${filename})`;
             res.send(msg);
             valid.stamper(res.statusCode, req.ip, msg);
         }

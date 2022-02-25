@@ -20,15 +20,15 @@ async function sharpResize(
     newPath: string,
     width: number,
     height: number
-) {
+): Promise <string | boolean> {
     let resized = await sharp(imgPath)
     .resize(width, height)
     .toFile(newPath)
     .then(function(): boolean {
-        console.log("sharpResize Ran");
+        // console.log("sharpResize Ran");
         return true;
     })
-    .catch(function(err) {
+    .catch(function(err): string {
         // console.log("sharpResize Ran and errored");
         return `${err}`;
     });
