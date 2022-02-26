@@ -54,7 +54,8 @@ Available scripts are defined in package.json
     "lint": "eslint ./src/**/** --ext .ts",
     "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
     "build": "npx tsc",
-    "start": "nodemon --exec npx ts-node \"./src/index.ts\"",
+    "dev": "nodemon --exec npx ts-node \"./src/index.ts\"",
+    "start": "node ./dist/.",
     "jaz": "jasmine",
     "test": "npm run build && npm run jaz"
   },
@@ -66,7 +67,7 @@ npm run start
 ```
 to run server using node
 ```bash
-node ./build/.
+node ./dist/.
 ```
 The API has one endpoint ```/api/images```,
 accepts http [GET] requests and expects to three query parameters to be present in the URL: ```?filename=imgname.extension&width=300&height=300```
