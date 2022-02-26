@@ -4,7 +4,7 @@
     "description": "Image Processing API",
     "main": "index.js",
     "scripts": {
-        "lint": "eslint ./src/**/** --ext .ts",
+        "lint": "eslint ./src/**/*.ts --fix",
         "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
         "build": "npx tsc",
         "start": "nodemon --exec npx ts-node \"./src/index.ts\"",
@@ -19,6 +19,7 @@
         "@types/node": "^17.0.21",
         "@types/sharp": "^0.29.5",
         "@types/supertest": "^2.0.11",
+        "@typescript-eslint/parser": "^5.12.1",
         "eslint": "^8.9.0",
         "eslint-config-prettier": "^8.4.0",
         "eslint-plugin-prettier": "^4.0.0",

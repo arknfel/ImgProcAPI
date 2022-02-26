@@ -52,7 +52,7 @@ Available scripts are defined in package.json
 ```json
 {
   "scripts": {
-    "lint": "eslint ./src/**/** --ext .ts",
+    "lint": "eslint ./src/**/*.ts --fix",
     "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
     "build": "npx tsc",
     "dev": "nodemon --exec npx ts-node \"./src/index.ts\"",
