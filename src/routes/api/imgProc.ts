@@ -13,19 +13,19 @@ const imgsPath = path.join(__dirname, '../../..', 'images');
 imagesRoute.get(
     '/images',
     [valid.presentParams, valid.validateFileName, valid.validateSize], // middleware
-    (req: express.Request, res: express.Response) => {
+    (req: express.Request, res: express.Response): void => {
 
 
-    let filename = (req.query.filename as unknown) as string;
+    const filename = (req.query.filename as unknown) as string;
 
-    let width = parseInt(req.query.width as string);
-    let height = parseInt(req.query.height as string);
-    let nameParts = filename.split('.');
+    const width = parseInt(req.query.width as string);
+    const height = parseInt(req.query.height as string);
+    const nameParts = filename.split('.');
 
-    let thumbName = `${nameParts[0]}-${width}x${height}.${nameParts[1]}`;
+    const thumbName = `${nameParts[0]}-${width}x${height}.${nameParts[1]}`;
 
-    let imgPath = path.join(imgsPath, 'full', filename);
-    let newPath = path.join(imgsPath, 'thumb', thumbName);
+    const imgPath = path.join(imgsPath, 'full', filename);
+    const newPath = path.join(imgsPath, 'thumb', thumbName);
     // console.log(imgPath);
 
     // async wrapper for resize IMG
@@ -33,8 +33,8 @@ imagesRoute.get(
 
         try{
             // cache
-            let resizedExists = utils.checkFileExists(newPath);
-            let originalExists = utils.checkFileExists(imgPath);
+            const resizedExists = utils.checkFileExists(newPath);
+            const originalExists = utils.checkFileExists(imgPath);
 
 
             if (
@@ -61,7 +61,6 @@ imagesRoute.get(
         }
     };
     serveReq();
-
 });
 
-export default imagesRoute ;
+export default imagesRoute;
