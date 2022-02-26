@@ -10,12 +10,13 @@ Use the node package manager [npm](https://www.npmjs.com/) to install requiremen
 Initializing npm and installing dependencies
 ```bash
 npm init -y
-npm i --save-dev typescript ts-node nodemon jasmine jasmine-spec-reporter supertest 
+npm i --save-dev typescript ts-node nodemon jasmine jasmine-spec-reporter supertest
 npm i --save-dev @types/node @types/express @types/sharp @types/jasmine @types/supertest
+npm i --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier @typescript-eslint/parser
 npm i express sharp
 
 ```
-additionally, this package.json can be used to setup the environment
+additionally, this package.json can be used to setup the environment, ```npm install```
 ```json
 {
   "devDependencies": {
@@ -24,6 +25,7 @@ additionally, this package.json can be used to setup the environment
     "@types/node": "^17.0.21",
     "@types/sharp": "^0.29.5",
     "@types/supertest": "^2.0.11",
+    "@typescript-eslint/parser": "^5.12.1",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -36,8 +38,8 @@ additionally, this package.json can be used to setup the environment
     "typescript": "^4.5.5"
   },
   "dependencies": {
-      "express": "^4.17.3",
-      "sharp": "^0.30.1"
+    "express": "^4.17.3",
+    "sharp": "^0.30.1"
   }
 }
 ```
