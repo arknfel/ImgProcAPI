@@ -10,7 +10,8 @@ Use the node package manager [npm](https://www.npmjs.com/) to install requiremen
 Initializing npm and installing dependencies
 ```bash
 npm init -y
-npm i --save-dev typescript ts-node nodemon @types/node @types/express @types/sharp @types/jasmine jasmine jasmine-spec-reporter supertest @types/supertest
+npm i --save-dev typescript ts-node nodemon jasmine jasmine-spec-reporter supertest 
+npm i --save-dev @types/node @types/express @types/sharp @types/jasmine @types/supertest
 npm i express sharp
 
 ```
