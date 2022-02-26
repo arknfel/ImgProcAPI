@@ -86,8 +86,7 @@ Note: The API is using the [sharp](https://www.npmjs.com/package/sharp) module t
 3. All three parameters must be present in the URL.
 
 ## References
-1. [https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client](https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client)
-Excellent question/answers that explains the issue where the next() might cause ```Error: Can't render headers after they are sent to the client.```
+1. [https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client](https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client)  Excellent question/answers that explains the issue where the next() might cause ```Error: Can't render headers after they are sent to the client.```
 
 2. [https://sharp.pixelplumbing.com/api-constructor](https://sharp.pixelplumbing.com/api-constructor)  
 npm sharp documentation.
