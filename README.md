@@ -47,15 +47,17 @@ npx tsc --init
 The directory structure should be as it is in the project folder (workspace)
 
 ## Usage
-3 main scripts are defined in package.json
+Available scripts are defined in package.json
 ```json
 {
-    "scripts": {
-      "build": "npx tsc",
-      "start": "nodemon --exec npx ts-node \"./src/index.ts\"",
-      "jaz": "jasmine",
-      "test": "npm run build && npm run jaz"
-    },
+  "scripts": {
+    "lint": "eslint ./src/**/** --ext .ts",
+    "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
+    "build": "npx tsc",
+    "start": "nodemon --exec npx ts-node \"./src/index.ts\"",
+    "jaz": "jasmine",
+    "test": "npm run build && npm run jaz"
+  },
 }
 ```
 to run server using nodemon
