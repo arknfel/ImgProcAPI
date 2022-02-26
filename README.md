@@ -70,7 +70,7 @@ to run server using node
 node ./dist/.
 ```
 The API has one endpoint ```/api/images```,
-accepts http [GET] requests and expects to three query parameters to be present in the URL: ```?filename=imgname.extension&width=300&height=300```
+accepts http [GET] requests and expects three query parameters to be present in the URL: ```?filename=imgname.extension&width=300&height=300```
 
 Assuming the server-name is "localhost"
 an example on the endpoint URL would be: ```http://localhost:3000/api/images?filename=testimage.jpg&width=520&height=520```
