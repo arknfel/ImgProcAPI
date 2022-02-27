@@ -13,6 +13,7 @@ imagesRoute.get(
   '/images',
   [valid.presentParams, valid.validateFileName, valid.validateSize], // middleware
   (req: express.Request, res: express.Response): void => {
+
     const filename = req.query.filename as unknown as string;
 
     const width = parseInt(req.query.width as string);
@@ -34,6 +35,7 @@ imagesRoute.get(
         await utils.checkFileExists(newPath)
 
           // step1: if cached exists, proceed to send it (last step)
+          // with status 200
           .then(async (): Promise <void> => {
             msg = `${filename} cached @ ${newPath}`;
             res.status(200);
@@ -52,7 +54,7 @@ imagesRoute.get(
                 await utils.sharpResize(imgPath, newPath, width, height)
 
                   // step3: if resized successfully, will
-                  // proceed to (last step) to send it
+                  // proceed to (last step) with status 200
                   .then((): void => {
                     msg = `${filename} resized @ ${newPath}`;
                     res.status(200);
@@ -66,7 +68,7 @@ imagesRoute.get(
                   });
               })
               // step2: if original requested img does not exist,
-              // go to last step with code 404
+              // go to (last step) with code 404
               .catch((err): void => {
                 res.status(404);
                 msg = `Could not find requested img ${filename}`;
