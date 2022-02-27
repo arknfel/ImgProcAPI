@@ -1,15 +1,5 @@
 import express from 'express';
-
-// logger function
-const stamper = function (
-  statusCode: number,
-  ip: string,
-  err?: unknown
-  // msg?: string
-): void {
-  console.log(`[${statusCode}] req from ${ip} @ ${Date.now()}: `);
-  console.log(err);
-};
+import utils from '../utilities/utilities';
 
 // Check if all params are present
 const presentParams = function (
@@ -26,9 +16,8 @@ const presentParams = function (
   } else {
     const msg = `could not parse all required params, parsed 
             ( filename: ${req.query.filename}, width: ${req.query.width}, height: ${req.query.height}`;
-    res.statusCode = 400;
-    res.send(msg);
-    stamper(res.statusCode, req.ip, new Error(msg));
+    res.status(400).send(msg);
+    utils.stamper(res.statusCode, req.ip, new Error(msg));
   }
 };
 
@@ -42,9 +31,8 @@ const validateFileName = function (
   const msg = 'missing file extension'; // err msg
   try {
     if (filename.split('.').length !== 2) {
-      res.statusCode = 404;
-      res.send(msg);
-      stamper(res.statusCode, req.ip, new Error(msg));
+      res.status(404).send(msg);
+      utils.stamper(res.statusCode, req.ip, new Error(msg));
 
       // next() must be wrapped by the else statement
       // since that incase the if statement is true, the response
@@ -53,9 +41,8 @@ const validateFileName = function (
       next();
     }
   } catch (err) {
-    res.statusCode = 404;
-    res.send(msg);
-    stamper(res.statusCode, req.ip, err);
+    res.status(404).send(msg);
+    utils.stamper(res.statusCode, req.ip, err);
   }
 };
 
@@ -75,21 +62,18 @@ const validateSize = function (
       parseInt(width) <= 0 ||
       parseInt(height) <= 0
     ) {
-      res.statusCode = 400;
-      res.send(msg);
-      stamper(res.statusCode, req.ip, new Error(msg));
+      res.status(400).send(msg);
+      utils.stamper(res.statusCode, req.ip, new Error(msg));
     } else {
       next();
     }
   } catch (err) {
-    res.statusCode = 400;
-    res.send(msg);
-    stamper(res.statusCode, req.ip, err);
+    res.status(400).send(msg);
+    utils.stamper(res.statusCode, req.ip, err);
   }
 };
 
 export default {
-  stamper,
   presentParams,
   validateFileName,
   validateSize
